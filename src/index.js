@@ -12,6 +12,10 @@ app.get("/repositories", (request, response) => {
   return response.json(repositories);
 });
 
+/*
+ * A rota deve receber `title`, `url` e `techs` pelo corpo da requisição e 
+ * retornar um objeto com as informações do repositório criado e um status `201`.
+ */
 app.post("/repositories", (request, response) => {
   const { title, url, techs } = request.body
 
@@ -23,7 +27,7 @@ app.post("/repositories", (request, response) => {
     likes: 0
   };
 
-  return response.json(repository);
+  return response.status(201).json(repository);
 });
 
 app.put("/repositories/:id", (request, response) => {

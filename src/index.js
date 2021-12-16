@@ -27,6 +27,8 @@ app.post("/repositories", (request, response) => {
     likes: 0
   };
 
+  respositories.push(repository);
+
   return response.status(201).json(repository);
 });
 
